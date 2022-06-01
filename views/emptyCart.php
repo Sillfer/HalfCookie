@@ -1,10 +1,10 @@
-<!-- <?php
-// foreach($_SESSION as $name => $product) :
-//     if (substr($name, 0, 9) == "products_"){
-//         unset($_SESSION[$name]);
-//         unset($_SESSION["count"]);
-//         unset($_SESSION["totaux"]);
-//         Session::set("success", "Your cart is empty!");
-//         Redirect::to("cart");
-//     }
-// endforeach; -->
+<?php
+foreach($_SESSION as $name => $product) :
+    if (substr($name, 0, 9) == "products_"){
+        unset($_SESSION[$name]);
+        unset($_SESSION["count"]);
+        unset($_SESSION["totaux"]);
+        Session::set("success", "Your cart is empty!");
+        Redirect::to("cart");
+    }
+endforeach;

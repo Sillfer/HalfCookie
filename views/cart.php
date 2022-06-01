@@ -52,30 +52,51 @@
                     <tr>
                         <th scope="row">Products</th>
                         <td>
-                                <?php echo isset($_SESSION['count']) ? $_SESSION['count'] : 0?>
+                            <?php echo isset($_SESSION['count']) ? $_SESSION['count'] : 0 ?>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">Total TTC</th>
                         <td>
-                                <strong data-amount="<?php echo isset($_SESSION["totaux"]) ?>">
-                                        <?php echo isset($_SESSION["totaux"]) ? $_SESSION["totaux"] : 0;?><span class="bb-danger">$</span>
-                                       
-                                </strong>
+                            <strong data-amount="<?php echo isset($_SESSION["totaux"]) ?>">
+                                <?php echo isset($_SESSION["totaux"]) ? $_SESSION["totaux"] : 0; ?><span class="fst-italic">$</span>
+                            </strong>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-    </div>
-</div>
-           
-           
-           <!-- <?php
-            // if (isset($_SESSION["count"]));
-            ?>
+        <?php if (isset($_SESSION["count"]) && $_SESSION["count"] > 0) : ?>
             <form method="post" action="<?php echo BASE_URL; ?>emptyCart">
-                <button type="submit"class="btn btn-primary">
+                <button type="submit" class="btn btn-primary">
                     Empty Cart
                 </button>
-            </form> -->
+            </form>
+            <form method="post" id="addOrder" action="<?php echo BASE_URL; ?>addOrder">
+                <button type="submit" form="addOrder" class="btn btn-success">
+                    Add Order
+                </button>
+            </form>
+        <?php endif; ?>
+    </div>
+</div>
+<script>
+    // $(document).ready(function() {  // On document ready
+    //     $("#addOrder").submit(function(e) { // On form submit
+    //         e.preventDefault(); // Prevent default behaviour
+    //         var form = $(this); // Store form   
+    //         var url = form.attr('action');  // Get form action url
+    //         var data = form.serialize();    // Get form data
+    //         $.ajax({    // Send form data to url via ajax
+    //             type: "POST",   // Type of request  
+    //             url: url,   // Send form data to url
+    //             data: data, // Send form data
+    //             success: function(data) {   // On success
+    //                 if (data == 'ok') { // If response is ok
+    //                     window.location.href = "<?php echo BASE_URL; ?>home";   // Redirect to home page
+    //                 }
+    //             }
+    //         });
+    //     });
+    // });
+</script>

@@ -2,7 +2,7 @@
   <footer class="d-flex flex-wrap justify-content-between align-items-center mb-0 fw-bold py-3 my-4 border-top">
     <p class="col-md-4 mb-0 text-muted">&copy; 2022 Half Cookie, Inc</p>
 
-    <a href="<?php echo BASE_URL;?>" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+    <a href="<?php echo BASE_URL;?>" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0">
       <img src="views\assets\images\Logo2.svg" width="50" height="50" alt="">
     </a>
 
@@ -16,5 +16,9 @@
 </div>
     <script src="node_modules\bootstrap\dist\js\bootstrap.bundle.js"></script>
     <script src="public\js\main.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
 </body>
 </html>
