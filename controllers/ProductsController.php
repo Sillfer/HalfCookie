@@ -30,4 +30,13 @@ class ProductsController{
         Session::set("success", "Product Removed!");
         Redirect::to("cart");
     }
+
+    public function getTotal(){
+        $total = Product::getTotalPrice();
+        return $total;
+    }
+    public function getTotalQuantity(){
+        $total = Product::getTotalQuantity();
+        return $total;
+    }
 }

@@ -1,3 +1,12 @@
+<?php
+    if(isset($_SESSION["logged"]) && $_SESSION["logged"] == true) {
+        Redirect::to("home");
+    }if(isset($_POST["submit"])){
+        $createUser = new UsersController();
+        $createUser->registerUser();
+    }
+
+?>
 <link rel="stylesheet" href="public\css\style.css">
 <section>
         <div class="imgBx">
@@ -36,8 +45,8 @@
                     <div class="remember">
                         <label for="id"><input type="checkbox" name="" id="id">Remember me</label>
                     </div>
-                    <div class="inputBx">
-                        <input type="submit" value="Sign Up">
+                    <div class="d-grid gap-2">
+                        <button name="submit" class="btn btn-outline-primary rounded-3" value="Sign Up">Sign Up</button>
                     </div>
                     <div class="inputBx">
                         <p>Already have an account?<a href="<?php echo BASE_URL; ?>login">Login</a></p>

@@ -8,7 +8,7 @@ $home = new HomeController();
 $pages = [ 
          'home', 'cart', 'dashboard', 'login', 'register', 'updateProduct', 'deleteProduct',
          'addProduct','emptyCart', 'show', 'cancelCart', 'checkout', 'logout', 'products',
-         'orders', 'addOrder', 'about', 'contact', 'ingredients', 'refundPolicy',
+         'orders', 'addOrder', 'about', 'dashboard' , 'contact', 'ingredients', 'refundPolicy',
          'wishlist', 'allCookies' 
         ];
 

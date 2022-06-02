@@ -32,6 +32,21 @@ class Product{
             echo 'Error' .$ex->getMessage();
         }
     }
+    static public function getTotalPrice() {
+        $stmt = DB::connect()->prepare('SELECT SUM(total) AS total FROM product_order');
+        $stmt->execute();
+        $total = $stmt->fetch(PDO::FETCH_OBJ);
+        return $total;
+        $stmt = null;
+    }
+
+    static public function getTotalQuantity() {
+        $stmt = DB::connect()->prepare('SELECT SUM(quantity) AS total FROM product_order');
+        $stmt->execute();
+        $total = $stmt->fetch(PDO::FETCH_OBJ);
+        return $total;
+        $stmt = null;
+    }
 
 }
 

@@ -1,5 +1,5 @@
 <?php
-class UserController
+class UsersController
 {
 
     public function auth()
@@ -42,5 +42,16 @@ class UserController
         } else {
            echo $result;
         }
+    }
+
+    public function logout()
+    {
+        // Unset all of the session variables.
+        unset($_SESSION["logged"]);
+        unset($_SESSION["username"]);
+        unset($_SESSION["first_name"]);
+        unset($_SESSION["last_name"]);
+        unset($_SESSION["admin"]);
+        Redirect::to("login");
     }
 }
