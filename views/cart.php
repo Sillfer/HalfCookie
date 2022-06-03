@@ -72,6 +72,11 @@
                     Add Order
                 </button>
             </form>
+            <form method="post" action="<?php echo BASE_URL; ?>emptyCart">
+                <button type="submit" class="btn btn-primary">
+                    Empty Cart
+                </button>
+            </form>
         <?php elseif (isset($_SESSION["count"]) && $_SESSION["count"] > 0) : ?>
             <form method="post" action="<?php echo BASE_URL; ?>emptyCart">
                 <button type="submit" class="btn btn-primary">

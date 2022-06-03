@@ -35,8 +35,17 @@ class ProductsController{
         $total = Product::getTotalPrice();
         return $total;
     }
-    public function getTotalQuantity(){
+    public function getTotalQuantitySold(){
         $total = Product::getTotalQuantity();
         return $total;
+    }
+
+    public function updateOrderStatus($id, $status) {
+        $data = array(
+            'id_order' => $id,
+            'order_status' => $status
+        );
+        Product::updateOrderStatus($data);
+        Redirect::to("dashboard");
     }
 }

@@ -9,7 +9,7 @@ foreach ($_SESSION as $name => $product) {
             "quantity" => $product["qte"],
             "price" => $product["price"],
             "total" => $product["total"],
-            "order_status" => "pending"
+            "order_status" => "Waiting for validation"
         );
 
         // print_r($data);

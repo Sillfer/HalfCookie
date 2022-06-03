@@ -47,7 +47,19 @@ class Product{
         return $total;
         $stmt = null;
     }
+    
+    static public function updateOrderStatus($data) {
+        $id = $data['id_order'];
+        $status = $data['order_status'];
+        try{
+            $stmt = DB::connect()->prepare('UPDATE product_order SET order_status = :status_order WHERE id_order = :id');
+            $stmt->execute(array(':status_order' => $status, ':id' => $id));
+            $stmt = null;
+        }catch(PDOException $ex){
+            echo 'Error' .$ex->getMessage();
+        }
+    }
+
+    
 
 }
-
-?>

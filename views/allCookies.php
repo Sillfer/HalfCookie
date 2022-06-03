@@ -1,5 +1,8 @@
 <?php
 
+// if (isset($_SESSION["admin"]) == 1 && $_SESSION["admin"] == true) {
+//     Redirect::to('dashboard');
+// }
 $categories = new CategoriesController();
 $categories = $categories->getAllCategories();
 if (isset($_POST['cat_id'])) {

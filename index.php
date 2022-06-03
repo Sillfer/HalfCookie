@@ -4,6 +4,7 @@ require_once './autoload.php';
 require_once ('./views/includes/header.php');
 
 $home = new HomeController();
+$admin = new AdminController();
 
 $pages = [ 
          'home', 'cart', 'dashboard', 'login', 'register', 'updateProduct', 'deleteProduct',
@@ -16,18 +17,18 @@ if(isset($_GET['page'])) {
     if (in_array($_GET['page'], $pages)) {  // if the page is in the array
         $page = $_GET['page'];
         if($page === "dashboard" || $page === "deleteProduct" || $page === "updateProduct" || $page === "addProduct" || $page === "products") {
-            if(isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
-                $admin =new AdminController();
+            
+            if(isset($_SESSION['admin']) && $_SESSION['admin'] == true && $_SESSION['logged'] === true && $_SESSION["admin"] == 1)  {
                 $admin->index($page);
+            }else{
+                include ('views/includes/404.php');
+            }
         }else{
-            include ('views/includes/404.php');
+            $home->index($page);
         }
     }else{
-        $home->index($page);
+        include ('views/includes/404.php');
     }
-}else{
-    include ('views/includes/404.php');
-}
 }else{
     $home->index('home');
 }
@@ -36,5 +37,5 @@ if(isset($_GET['page'])) {
 
 
 $path = explode("/", $_SERVER["REQUEST_URI"])[2];   // get the path from the url 
-        if($path != "login" && $path != "register") {   
+        if($path != "login" && $path != "register" && $path != "dashboard") {   
 require_once ('./views/includes/footer.php');}

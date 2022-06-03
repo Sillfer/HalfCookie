@@ -38,9 +38,6 @@
             <a class="nav-link me-4" href="<?php echo BASE_URL; ?>login"><i class="fas fa-user"><?php echo "Login" ?></i></a>
           <?php endif;?>
         <li class="nav-item">
-          <a class="nav-link me-4" href="<?php echo BASE_URL; ?>wishlist"><i class="fa-solid fa-heart"></i></a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="<?php echo BASE_URL; ?>cart"><i class="fa-solid fa-cart-shopping"></i>
             <?php if (isset($_SESSION["count"]) && $_SESSION["count"] > 0) : ?>
               (<?php echo $_SESSION["count"]; ?>)

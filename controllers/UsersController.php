@@ -13,7 +13,14 @@ class UsersController
                 $_SESSION["first_name"] = $result->first_name;
                 $_SESSION["last_name"] = $result->last_name;
                 $_SESSION["admin"] = $result->admin;
-                Redirect::to("home");
+                
+                if($result->admin == 1) {
+                    // var_dump($_SESSION);
+                    // $_SESSION["admin"] = true;
+                    Redirect::to('dashboard');
+                }else if($result->admin == 0) {
+                    Redirect::to("home");
+                }
             } else {
                 Session::set("error", "Wrong username or password!");
                 Redirect::to("login");

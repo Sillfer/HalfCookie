@@ -18,4 +18,19 @@ class OrdersController
             Redirect::to("allCookies");
         }
     }
+    public function getWaitingOrders()
+    {
+        $total = Order::countWaitingOrders();
+        return $total;
+    }
+    // public function getPending(){
+    //     $pending = Order::getPendingOrder();
+    //     return $pending;
+    // }
+
+    public function displayOrders()
+    {
+        $orders = Order::displayOrders();
+        return $orders;
+    }
 }
