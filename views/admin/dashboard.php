@@ -1,7 +1,6 @@
 <?php
 $total = new ProductsController();
 $total_price = $total->getTotal();
-// $total = new ProductsController();
 $total_quantity = $total->getTotalQuantitySold();
 $total = new OrdersController();
 $pending_order = $total->getWaitingOrders();
