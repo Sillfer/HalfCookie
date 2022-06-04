@@ -1,3 +1,4 @@
+<title>Register</title>
 <?php
     if(isset($_SESSION["logged"]) && $_SESSION["logged"] == true) {
         Redirect::to("home");

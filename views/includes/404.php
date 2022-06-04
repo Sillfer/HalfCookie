@@ -1,1 +1,1 @@
-PAGE NOT FOUND
+<title>Page Not Found</title>

@@ -23,10 +23,6 @@ class OrdersController
         $total = Order::countWaitingOrders();
         return $total;
     }
-    // public function getPending(){
-    //     $pending = Order::getPendingOrder();
-    //     return $pending;
-    // }
 
     public function displayOrders()
     {

@@ -3,6 +3,7 @@ $data = new ProductsController();
 $product = $data->getProduct();
 
 ?>
+<title><?php echo $product->product_name; ?></title>
 <div class="container px-4 py-5 text-center">
     <h2 class="pb-2 border-bottom text-center" style="color: #947057;">Cookies</h2>
     <div class="fs-5 text-start" style="color: #947057;">

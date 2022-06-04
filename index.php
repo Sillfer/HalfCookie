@@ -10,13 +10,13 @@ $pages = [
          'home', 'cart', 'dashboard', 'login', 'register', 'updateProduct', 'deleteProduct',
          'addProduct','emptyCart', 'show', 'cancelCart', 'checkout', 'logout', 'products',
          'orders', 'addOrder', 'about', 'dashboard' , 'contact', 'ingredients', 'refundPolicy',
-         'wishlist', 'allCookies' 
+         'wishlist', 'allCookies', 'categories', 'clients' 
         ];
 
 if(isset($_GET['page'])) {
     if (in_array($_GET['page'], $pages)) {  // if the page is in the array
         $page = $_GET['page'];
-        if($page === "dashboard" || $page === "deleteProduct" || $page === "updateProduct" || $page === "addProduct" || $page === "products") {
+        if($page === "dashboard" || $page === "deleteProduct" || $page === "updateProduct" || $page === "addProduct" || $page === "products" || $page === "categories" || $page === "clients") {
             
             if(isset($_SESSION['admin']) && $_SESSION['admin'] == true && $_SESSION['logged'] === true && $_SESSION["admin"] == 1)  {
                 $admin->index($page);
@@ -37,5 +37,5 @@ if(isset($_GET['page'])) {
 
 
 $path = explode("/", $_SERVER["REQUEST_URI"])[2];   // get the path from the url 
-        if($path != "login" && $path != "register" && $path != "dashboard") {   
+        if($path != "login" && $path != "register" && $path != "dashboard" && $path != "products" && $path != "categories" && $path != "clients") {   
 require_once ('./views/includes/footer.php');}

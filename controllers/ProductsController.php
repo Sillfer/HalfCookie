@@ -48,4 +48,7 @@ class ProductsController{
         Product::updateOrderStatus($data);
         Redirect::to("dashboard");
     }
+
+    
+
 }

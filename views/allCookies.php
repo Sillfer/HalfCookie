@@ -1,3 +1,4 @@
+<title>Cookies</title>
 <?php
 
 // if (isset($_SESSION["admin"]) == 1 && $_SESSION["admin"] == true) {
@@ -30,11 +31,6 @@ if (isset($_POST['cat_id'])) {
     </form>
     <a onclick="getCatProducts(<?php echo $category['id_category']; ?>)" class="btn rounded-3 btn-outline-primary me-3 mb-4">
       <?php echo $category['name_category'] ?>
-      (<?php
-        $productByCat = new ProductsController();
-        $productByCat = $productByCat->getProductByCategory($category['id_category']);
-        echo count($productByCat);
-        ?>)
     </a>
   <?php
   endforeach;

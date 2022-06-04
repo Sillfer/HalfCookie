@@ -15,6 +15,6 @@ foreach ($_SESSION as $name => $product) {
         // print_r($data);
         $order->addOrder($data);
     }else{
-        Redirect::to("allCookies");
+        Redirect::to("refundPolicy");
     }
 }

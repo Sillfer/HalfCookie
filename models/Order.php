@@ -20,7 +20,6 @@ class Order {
         $stmt = null;
     }
 
-    // count all orders Waiting for validation
     public static function countWaitingOrders() {
         $stmt = DB::connect()->prepare('SELECT COUNT(*) AS total FROM product_order WHERE order_status = "Waiting for validation"');
         $stmt->execute();
@@ -29,13 +28,6 @@ class Order {
         $stmt = null;
     }
     
-    // static public function getPendingOrder() {
-    //     $stmt = DB::connect()->prepare('SELECT COUNT(order_status) AS pending FROM product_order WHERE order_status = 0');
-    //     $stmt->execute();
-    //     $pending = $stmt->fetch(PDO::FETCH_OBJ);
-    //     return $pending;
-    //     $stmt = null;
-    // }
 
     static public function displayOrders() {
         $stmt = DB::connect()->prepare('SELECT * FROM product_order ORDER BY date_order DESC');

@@ -1,3 +1,4 @@
+<title>HALF COOKIE</title>
 <?php
 // if (isset($_SESSION["admin"]) == 1 && $_SESSION["admin"] == true) {
 //     // echo '<a href="dashboard">Dashboard</a>';

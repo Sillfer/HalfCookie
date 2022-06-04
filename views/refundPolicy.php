@@ -1,3 +1,4 @@
+<title>Refund Policy</title>
 <div class="container px-4 py-5 text-center">
     <h2 class="pb-2 border-bottom text-center" style="color: #947057;">Refund Policy</h2>
 </div>

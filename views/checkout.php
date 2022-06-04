@@ -32,8 +32,6 @@ if (isset($_POST["product_id"])) {
             } else {
                 $_SESSION['count'] = 1;
             }
-            // $_SESSION["totaux"] += $_SESSION["products_" . $product->product_id]["total"];
-            // $_SESSION["count"] += 1;
             Session::set("success", "You added $product->product_name to your cart!");
             Redirect::to("cart");
         }
