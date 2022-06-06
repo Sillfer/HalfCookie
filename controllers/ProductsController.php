@@ -48,7 +48,9 @@ class ProductsController{
         Product::updateOrderStatus($data);
         Redirect::to("dashboard");
     }
-
     
-
+    public function getProductAdmin() {
+        $products = Product::getAllProducts();
+        return $products;
+    }
 }

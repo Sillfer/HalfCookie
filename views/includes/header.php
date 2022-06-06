@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="node_modules\bootstrap\scss\bootstrap.css">
-    <!-- <link rel="stylesheet" href="public\css\cart.css"/> -->
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="icon" type="image/png" href="views\assets\images\Logo2.svg"/>
     
 </head>
@@ -21,7 +19,11 @@
     <div class="row m-0">
         <div class="col-md-12">
             <?php
-            include('views/includes/alerts.php');
+            $path = explode("/", $_SERVER["REQUEST_URI"])[2];
+            if($path != "login" && $path != "register") {
+                include('views/includes/alerts.php');
+            }
+            
             ?>
         </div>
     </div>

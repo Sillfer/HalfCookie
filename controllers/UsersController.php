@@ -43,13 +43,20 @@ class UsersController
             "adress" => $_POST["adress"]
         );
         $result = User::register($data);
-        if ($result == 'ok') {
+        if ($result === 'ok') {
             Session::set("success", "User registered!");
             Redirect::to("login");
+        
         } else {
            echo $result;
         }
+        if ($result === 'error'){
+        
+            Session::set("error", "Username is Already Used");
+            Redirect::to("login");
+        }
     }
+    
 
     public function logout()
     {

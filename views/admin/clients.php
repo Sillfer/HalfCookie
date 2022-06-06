@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
+    <title>Clients</title>
 </head>
 
 <body>
@@ -71,7 +71,7 @@
                 </nav>
             </div>
             <div class="flex-1 flex flex-col overflow-hidden">
-                <header class="flex justify-between items-center py-4 px-6 bg-white border-b-4 border-indigo-600">
+                <header class="flex justify-between items-center py-4 px-6 bg-white border-b-4 border-amber-800">
                     <div class="flex items-center">
                         <button @click="sidebarOpen = true" class="text-gray-500 focus:outline-none lg:hidden">
                             <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

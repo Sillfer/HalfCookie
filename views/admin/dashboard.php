@@ -22,7 +22,7 @@ if (isset($_POST["validate"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
+    <title>Dashboard</title>
 </head>
 
 <body>
@@ -205,7 +205,7 @@ if (isset($_POST["validate"])) {
                                                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                         <div class="flex items-center">
                                                             <div class="flex-shrink-0 h-10 w-10">
-                                                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="">
+                                                                <img class="h-10 w-10 rounded-full" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" alt="">
                                                             </div>
 
                                                             <div class="ml-4">
@@ -227,10 +227,15 @@ if (isset($_POST["validate"])) {
 
                                                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
                                                         <?php echo $order_list["date_order"] ?></td>
-
-                                                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"><?php echo $order_list["order_status"] ?></span>
-                                                    </td>
+                                                    <?php if ($order_list["order_status"] == "Validated") : ?>
+                                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"><?php echo $order_list["order_status"] ?></span>
+                                                        </td>
+                                                    <?php elseif ($order_list["order_status"] == "Waiting for validation") : ?>
+                                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-orange-100 text-orange-800"><?php echo $order_list["order_status"] ?></span>
+                                                        </td>
+                                                    <?php endif; ?>
 
                                                     <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
                                                         <form method="post">

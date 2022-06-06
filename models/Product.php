@@ -60,7 +60,6 @@ class Product{
         }
     }
 
-    // insert product in the product table
     static public function insertProduct($data) {
         $name = $data['name'];
         $category = $data['category'];
@@ -77,6 +76,15 @@ class Product{
             echo 'Error' .$ex->getMessage();
         }
     }
+
+    static public function getAllProducts() {
+        $stmt = DB::connect()->prepare('SELECT * FROM product INNER JOIN category ON product.product_category_id = category.id_category');
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt = null;
+    }
+    
+
     
 
 }
