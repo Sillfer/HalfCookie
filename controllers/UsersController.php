@@ -12,13 +12,14 @@ class UsersController
                 $_SESSION["username"] = $result->username;
                 $_SESSION["first_name"] = $result->first_name;
                 $_SESSION["last_name"] = $result->last_name;
+                $_SESSION["user_id"] = $result->user_id;
                 $_SESSION["admin"] = $result->admin;
-                
-                if($result->admin == 1) {
+
+                if ($result->admin == 1) {
                     // var_dump($_SESSION);
                     // $_SESSION["admin"] = true;
                     Redirect::to('dashboard');
-                }else if($result->admin == 0) {
+                } else if ($result->admin == 0) {
                     Redirect::to("home");
                 }
             } else {
@@ -46,17 +47,16 @@ class UsersController
         if ($result === 'ok') {
             Session::set("success", "User registered!");
             Redirect::to("login");
-        
         } else {
-           echo $result;
+            echo $result;
         }
-        if ($result === 'error'){
-        
+        if ($result === 'error') {
+
             Session::set("error", "Username is Already Used");
             Redirect::to("login");
         }
     }
-    
+
 
     public function logout()
     {
@@ -65,7 +65,39 @@ class UsersController
         unset($_SESSION["username"]);
         unset($_SESSION["first_name"]);
         unset($_SESSION["last_name"]);
+        unset($_SESSION["user_id"]);
         unset($_SESSION["admin"]);
         Redirect::to("login");
+    }
+
+    public function addToWhishlist()
+    {
+
+        if (isset($_POST["submit"])) {
+            $data = array(
+                "user_id" => $_SESSION["user_id"],
+                "product_id" => $_POST["product_id"]
+            );
+            $result = Wishlist::add($data);
+            if ($result === "ok") {
+                Session::set("success", "product added to wishlist!");
+                Redirect::to("allCookies");
+            } else {
+                Session::set("error", "Product already in wishlist!");
+                Redirect::to("allCookies");
+            }
+        }
+    }
+
+    public function getAllWishlist()
+    {
+        $result = Wishlist::getAll();
+        return $result;
+    }
+
+    public function getUser()
+    {
+        $result = User::getAll();
+        return $result;
     }
 }

@@ -2,6 +2,13 @@
 $data = new ProductsController();
 $product = $data->getProduct();
 
+$id = $_POST['product_id'];
+
+if (isset($_POST["submit"])) {
+    $data = new UsersController();
+    $product = $data->addToWhishlist();
+}
+
 ?>
 <title><?php echo $product->product_name; ?></title>
 <div class="container px-4 py-5 text-center">
@@ -17,7 +24,7 @@ $product = $data->getProduct();
             <!-- Image -->
             <div class="col-lg-5 mt-5">
                 <div class="card mb-3">
-                    <img class="card-img img-fluid" src="<?php echo $product->product_image ?>" alt="Product Img">
+                    <img class="card-img img-fluid"  src="<?="./public/uploads/".$product->product_image ?>" alt="Product Img">
                 </div>
             </div>
             <!-- Col -->
@@ -40,6 +47,14 @@ $product = $data->getProduct();
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-outline-dark btn-block">
                                         Add to Cart
+                                    </button>
+                                </div>
+                            </form>
+                            <form method="post">
+                                <div class="form-group">
+                                    <input type="hidden" name="product_id" value="<?php echo $product->product_id ?>">
+                                    <button type="submit" name="submit" class="btn btn-outline-dark btn-block">
+                                        Add to Wishlist
                                     </button>
                                 </div>
                             </form>

@@ -10,7 +10,7 @@ $pages = [
          'home', 'cart', 'dashboard', 'login', 'register', 'updateProduct', 'deleteProduct',
          'addProduct','emptyCart', 'show', 'cancelCart', 'checkout', 'logout', 'products',
          'orders', 'addOrder', 'about', 'dashboard' , 'contact', 'ingredients', 'refundPolicy',
-         'wishlist', 'allCookies', 'categories', 'clients' 
+         'wishlist','profile', 'allCookies', 'categories', 'clients' 
         ];
 
 if(isset($_GET['page'])) {
@@ -37,5 +37,5 @@ if(isset($_GET['page'])) {
 
 
 $path = explode("/", $_SERVER["REQUEST_URI"])[2];   // get the path from the url 
-        if($path != "login" && $path != "register" && $path != "dashboard" && $path != "products" && $path != "categories" && $path != "clients") {   
+        if($path != "login" && $path != "register" && $path != "dashboard" && $path != "products" && $path != "categories" && $path != "clients" && $path != "addProduct" && $path != "deleteProduct" && $path != "updateProduct") {   
 require_once ('./views/includes/footer.php');}

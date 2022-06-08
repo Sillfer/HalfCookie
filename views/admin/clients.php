@@ -1,3 +1,7 @@
+<?php
+$data = new UsersController();
+$users = $data->getUser();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -98,7 +102,67 @@
                     </div>
                 </header>
                 <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
-                    CLIENT PAGE
+                    <div class="container mx-auto px-6 py-8">
+                        <h3 class="text-gray-700 text-3xl font-medium">Users</h3>
+
+
+
+                        
+
+                        <div class="flex flex-col mt-8">
+                            <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+                                <div class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
+
+                                    <table class="min-w-full">
+
+                                        <thead>
+                                            <tr>
+                                                <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                    First Name</th>
+                                                <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                    Last Name</th>
+                                                <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                    Username</th>
+                                                <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                    Email</th>
+                                                <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                    Adress</th>
+                                            </tr>
+                                        </thead>
+                                        <?php
+                                        foreach ($users as $user) :
+                                        ?>
+
+                                            <tbody class="bg-white">
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                                        <div class="text-sm leading-5 text-gray-900"><?php echo $user['first_name']; ?></div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                                        <div class="text-sm leading-5 text-gray-900"><?php echo $user['last_name']; ?></div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                                        <div class="text-sm text-center leading-5 text-gray-900"><?php echo $user['username']; ?></div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                                        <div class="text-sm text-center leading-5 text-gray-900"><?php echo $user['email']; ?></div>
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                                        <div class="text-sm text-center leading-5 text-gray-900"><?php echo $user['adress']; ?></div>
+                                                    </td>
+                                                    
+                                                </tr>
+                                            </tbody>
+                                        <?php
+                                        endforeach;
+                                        ?>
+
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </main>
             </div>
         </div>

@@ -1,0 +1,53 @@
+body {
+    background-color: #9A616D;}
+    
+  p {
+    color: #947057; } 
+  .content {
+    padding: 7rem 0; }
+  
+  h2 {
+    font-size: 20px;
+    color: #947057; }
+  
+  .custom-table {
+    min-width: 900px; }
+    .custom-table thead tr, .custom-table thead th {
+      padding-bottom: 30px;
+      border-top: none;
+      border-bottom: none !important;
+      color: #947057;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .2rem; }
+    .custom-table tbody tr td{
+      color: #947057;
+      font-weight: 400;
+      padding-bottom: 20px;
+      padding-top: 20px;
+      font-weight: 500;
+      border: none;
+      -webkit-transition: .3s all ease;
+      -o-transition: .3s all ease;
+      transition: .3s all ease; }
+      .custom-table tbody th , .custom-table tbody td {
+        color: #947057;
+        font-size: 15px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: .2rem; }
+    .custom-table tbody tr {
+      -webkit-transition: .3s all ease;
+      -o-transition: .3s all ease;
+      transition: .3s all ease; }
+        .custom-table tbody tr:hover td , .custom-table tbody tr:focus td  {
+          color: #947057; }
+    .custom-table .td-box-wrap {
+      padding: 0; }
+    .custom-table .box {
+      background: #947057;
+      border-radius: 4px;
+      margin-top: 15px;
+      margin-bottom: 15px; }
+      .custom-table .box td, .custom-table .box th {
+        border: none !important; }

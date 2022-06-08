@@ -33,4 +33,13 @@ class User
         }
         $stmt = null;
     }
+
+    // get all users
+    static public function getAll()
+    {
+        $stmt = DB::connect()->prepare('SELECT * FROM users WHERE admin = 0');
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt = null;
+    }
 }

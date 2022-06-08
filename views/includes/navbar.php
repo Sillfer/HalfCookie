@@ -31,6 +31,8 @@
         <?php if(isset($_SESSION["logged"]) && $_SESSION["logged"] === true):?>
           <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" href="#"><i class="fas fa-user"><?php echo $_SESSION["username"] ?></i></a>
           <ul class="dropdown-menu" aria-labelledby="dropdown04" style="background-color: #F4FAFF;">
+          <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>Profile">Profile</a></li>
+          <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>wishlist">Wishlist</a></li>
             <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>logout">Logout</a></li>
           </ul>
         </li>

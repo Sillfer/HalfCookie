@@ -14,7 +14,11 @@ if (isset($_POST['cat_id'])) {
   $products = $data->getAllProducts();
 }
 ?>
+
 <div class="container px-4 py-5 text-center">
+<?php
+// print_r($_SESSION);
+?>
   <h2 class="pb-2 border-bottom text-center" style="color: #947057;">Cookies</h2>
   <div class="fs-5 text-start" style="color: #947057;">
     <p>Artisan small batch cookies prepared from scratch each day. Our original recipes are mixed from all natural ingredients
@@ -49,11 +53,11 @@ if (isset($_POST['cat_id'])) {
           <form id="form" method="post" action="<?php echo BASE_URL; ?>show">
             <input type="hidden" name="product_id" id="product_id">
           </form>
-            <img onclick="submitForm(<?php echo $product['product_id']; ?>)" class="d-block img-fluid rounded-3 shadow" src="
-              <?php echo $product['product_image']; ?>
+            <img onclick="submitForm(<?php echo $product['product_id']; ?>)" class="d-block img-fluid rounded-3 shadow"  src="
+            <?="./public/uploads/".$product['product_image'] ?>
               " alt="" role="button">
-          <p style="color: #947057;" class=" text-start fs-6"><?php echo $product['product_name']; ?></p>
-          <p style="color: #947057;" class=" text-start fs-6 fw-bolder">from $<?php echo $product['product_price']; ?></p>
+          <p style="color: #947057;" class=" text-start fs-6 mt-3"><?php echo $product['product_name']; ?></p>
+          <p style="color: #947057;" class=" text-start fs-6 fw-bolder"><?php echo $product['product_price']; ?> DH</p>
         </div>
 
       <?php

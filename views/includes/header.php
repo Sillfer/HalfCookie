@@ -12,7 +12,7 @@
 <body style="background-color: #F4FAFF;">
     <?php
     $path = explode("/", $_SERVER["REQUEST_URI"])[2];
-        if($path != "login" && $path != "register" && $path != "dashboard" && $path != "products" && $path != "categories" && $path != "clients") {
+        if($path != "login" && $path != "register" && $path != "dashboard" && $path != "products" && $path != "categories" && $path != "clients" && $path != "addProduct" && $path != "deleteProduct" && $path != "updateProduct") {
          include('views/includes/navbar.php');
         }
     ?>

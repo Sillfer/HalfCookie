@@ -5,4 +5,9 @@ class CategoriesController{
         $categories = Category::getAll();
         return $categories;
     }
+
+    public function getAllCategoriesWithProducts() {
+        $categories = Category::getAllWithProducts();
+        return $categories;
+    }
 }
