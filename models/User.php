@@ -42,4 +42,22 @@ class User
         return $stmt->fetchAll();
         $stmt = null;
     }
+
+    //  update user
+    static public function update($data)
+    {
+        $stmt = DB::connect()->prepare('UPDATE users SET first_name = :first_name, last_name = :last_name, email = :email, adress = :adress WHERE `user_id` = :user_id');
+        $stmt->bindParam(':first_name', $data['first_name']);
+        $stmt->bindParam(':last_name', $data['last_name']);
+        $stmt->bindParam(':email', $data['email']);
+        $stmt->bindParam(':adress', $data['adress']);
+        $stmt->bindParam(':user_id', $data['user_id']);
+        if ($stmt->execute()) {
+            return 'ok';
+        } else {
+            return 'error';
+        }
+        $stmt = null;
+
+}
 }

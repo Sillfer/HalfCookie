@@ -1,9 +1,11 @@
 <?php
 $categories = new CategoriesController();
 $categories = $categories->getAllCategories();
+$productToUpdate = new ProductsController();
+$productToUpdate = $productToUpdate->getProduct();
 if (isset($_POST["submit"])) {
     $product = new ProductsController();
-    $product->newProduct();
+    $product->editProduct();
 }
 
 
@@ -16,7 +18,7 @@ if (isset($_POST["submit"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Add Products</title>
+    <title>Update Products</title>
 </head>
 
 <body>
@@ -112,7 +114,7 @@ if (isset($_POST["submit"])) {
                     include('views/includes/alerts.php');
                     ?>
                     <div class="container mx-auto px-6 py-8">
-                        <h3 class="text-gray-700 text-3xl font-medium">Add Product</h3>
+                        <h3 class="text-gray-700 text-3xl font-medium">Update Product</h3>
 
                         <style>
                             .-z-1 {
@@ -153,7 +155,7 @@ if (isset($_POST["submit"])) {
 
                                 <form method="post">
                                     <div class="relative z-0 w-full mb-5">
-                                        <input type="text" name="product_name" placeholder=" " required class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent  border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200" />
+                                        <input type="text" name="product_name" value="<?php echo $productToUpdate->product_name; ?>" required class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent  border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200" />
                                         <label for="name" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Enter Product name</label>
                                         <span class="text-sm text-red-600 hidden" id="error">Name is required</span>
                                     </div>
@@ -161,35 +163,41 @@ if (isset($_POST["submit"])) {
                                         <select name="product_category_id" value="" onclick="this.setAttribute('value', this.value);" class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent  border-b-2 appearance-none z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200">
                                             <option value="" selected disabled hidden></option>
                                             <?php foreach ($categories as $category) : ?>
-                                                <option value="<?php echo $category["id_category"]; ?>"><?php echo $category["name_category"]; ?></option>
+                                                <option <?php echo $productToUpdate->product_category_id === $category['id_category'] ? "selected" : ""; ?> value="<?php echo $category["id_category"]; ?>">
+                                                    <?php echo $category["name_category"]; ?>
+                                                </option>
                                             <?php endforeach; ?>
                                         </select>
                                         <label for="select" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Select a category</label>
                                         <span class="text-sm text-red-600 hidden" id="error">Option has to be selected</span>
                                     </div>
                                     <div class="relative z-0 w-full mb-5">
-                                        <input type="number" name="product_price" placeholder=" " class="pt-3 pb-2 pl-1 block w-full px-0 mt-0 bg-transparent  border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200" min="10" />
+                                        <input type="number" name="product_price" value="<?php echo $productToUpdate->product_price; ?>" class="pt-3 pb-2 pl-1 block w-full px-0 mt-0 bg-transparent  border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200" min="10" />
                                         <div class="absolute top-0 left-10 mt-3 ml-1 text-gray-400">MAD</div>
                                         <label for="money" class="absolute duration-300 top-0 left-1 -z-1 origin-0 text-gray-500">Price</label>
                                         <span class="text-sm text-red-600 hidden" id="error">Price is required</span>
                                     </div>
                                     <div class="relative z-0 w-full mb-5">
-                                        <input type="number" name="product_quantity" placeholder=" " class="pt-3 pb-2 pl-1 block w-full px-0 mt-0 bg-transparent  border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200" min="10" />
+                                        <input type="number" name="product_quantity" value="<?php echo $productToUpdate->product_quantity; ?>" class="pt-3 pb-2 pl-1 block w-full px-0 mt-0 bg-transparent  border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200" min="10" />
                                         <label for="money" class="absolute duration-300 top-0 left-1 -z-1 origin-0 text-gray-500">Select Quantity</label>
                                         <span class="text-sm text-red-600 hidden" id="error">Quantity is required</span>
                                     </div>
+                                    <input type="hidden" name="product_id" value="<?php echo $productToUpdate->product_id; ?>">
 
                                     <div class="relative z-0 w-full mb-5">
-                                        <textarea name="product_description" placeholder=" " class="pt-3 pb-2 pl-1 block w-full px-0 mt-0 bg-transparent  border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"></textarea>
+                                        <textarea name="product_description" placeholder=" " class="pt-3 pb-2 pl-1 block w-full px-0 mt-0 bg-transparent  border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"><?php echo $productToUpdate->product_description; ?></textarea>
                                         <label for="money" class="absolute duration-300 top-0 left-1 -z-1 origin-0 text-gray-500">Description</label>
                                         <span class="text-sm text-red-600 hidden" id="error">Description is required</span>
                                     </div>
                                     <div class="relative z-0 w-full mb-5">
-                                        <textarea name="short_description" placeholder=" " class="pt-3 pb-2 pl-1 block w-full px-0 mt-0 bg-transparent  border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"></textarea>
+                                        <textarea name="short_description" placeholder=" " class="pt-3 pb-2 pl-1 block w-full px-0 mt-0 bg-transparent  border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"><?php echo $productToUpdate->short_description; ?></textarea>
                                         <label for="money" class="absolute duration-300 top-0 left-1 -z-1 origin-0 text-gray-500">Short Description</label>
                                         <span class="text-sm text-red-600 hidden" id="error">Description is required</span>
                                     </div>
                                     <div class="relative z-0 w-full mb-5">
+                                        <div>
+                                            <img src="./public/uploads/<?php echo $productToUpdate->product_image; ?>" alt="" srcset="">
+                                        </div>
                                         <input type="file" name="image" placeholder=" " class="pt-3 pb-2 pl-1 block w-full px-0 mt-0 bg-transparent  border-b-2 focus:outline-none focus:ring-0 focus:border-black border-gray-200" />
                                         <label for="image" class="absolute duration-300 top-0 left-1 -z-1 origin-0 text-gray-500">Image</label>
                                         <span class="text-sm text-red-600 hidden" id="image">Image is required</span>
@@ -208,6 +216,8 @@ if (isset($_POST["submit"])) {
             </div>
         </div>
     </div>
+    <script src="public\js\main.js"></script>
+
 </body>
 
 

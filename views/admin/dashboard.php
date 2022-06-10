@@ -114,6 +114,9 @@ if (isset($_POST["validate"])) {
                     </div>
                 </header>
                 <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
+                    <?php
+                    include('views/includes/alerts.php');
+                    ?>
                     <div class="container mx-auto px-6 py-8">
                         <h3 class="text-gray-700 text-3xl font-medium">Dashboard</h3>
 
@@ -129,7 +132,7 @@ if (isset($_POST["validate"])) {
                                         </div>
 
                                         <div class="mx-5">
-                                            <h4 class="text-2xl font-semibold text-gray-700">$<?php echo $total_price->total ?></h4>
+                                            <h4 class="text-2xl font-semibold text-gray-700"><?php echo $total_price->total ?> MAD</h4>
                                             <div class="text-gray-500">Total Sold</div>
                                         </div>
                                     </div>

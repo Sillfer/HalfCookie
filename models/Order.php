@@ -2,7 +2,7 @@
 
 class Order {
     public static function createOrder($data) {
-        $stmt = DB::connect()->prepare('INSERT INTO product_order (first_name, last_name, product, quantity, price, total, date_order, order_status) VALUES (:first_name, :last_name, :product, :quantity, :price, :total, NOW() , :order_status)');
+        $stmt = DB::connect()->prepare('INSERT INTO product_order (first_name, last_name, product, quantity, price, total, date_order, order_status, user_id) VALUES (:first_name, :last_name, :product, :quantity, :price, :total, NOW() , :order_status, :user_id)');
         $stmt->bindParam(':first_name', $data['first_name']);
         $stmt->bindParam(':last_name', $data['last_name']);
         $stmt->bindParam(':product', $data['product']);
@@ -11,6 +11,7 @@ class Order {
         $stmt->bindParam(':total', $data['total']);
         // $stmt->bindParam(':date_order', date("Y-m-d H:i:s"));
         $stmt->bindParam(':order_status', $data['order_status']);
+        $stmt->bindParam(':user_id', $_SESSION['user_id']);
         if($stmt->execute()){
             return 'ok';
         }else{
@@ -36,6 +37,20 @@ class Order {
         return $orders;
         $stmt = null;
     }
+
+// get all orders by user_id
+    static public function getOrdersByUserId($user_id) {
+        $stmt = DB::connect()->prepare('SELECT * FROM product_order WHERE user_id = :user_id ORDER BY date_order DESC');
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->execute();
+        $orders = $stmt->fetchAll();
+        return $orders;
+        $stmt = null;
+    }
+
+
+
+
   
 }
 

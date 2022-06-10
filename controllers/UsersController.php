@@ -100,4 +100,38 @@ class UsersController
         $result = User::getAll();
         return $result;
     }
+
+    public function unlike($pid)
+    {
+        $result = Wishlist::remove($pid);
+        if ($result === "ok") {
+            Session::set("error", "Product removed from your wishlist");
+            Redirect::to("wishlist");
+        } else {
+            Session::set("error", "Product is not in your wishlist");
+            Redirect::to("wishlist");
+        }
+    }
+
+    // update user
+    public function updateUser()
+    {
+
+        $data = array(
+            "first_name" => $_POST["first_name"],
+            "last_name" => $_POST["last_name"],
+            "email" => $_POST["email"],
+            "adress" => $_POST["adress"],
+            "user_id" => $_SESSION["user_id"]
+        );
+        
+        $result = User::update($data);
+        if ($result === "ok") {
+            Session::set("success", "User updated!");
+            Redirect::to("home");
+        } else {
+            Session::set("error", "User not updated!");
+            Redirect::to("allCookies");
+        }
+    }
 }

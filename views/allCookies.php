@@ -56,8 +56,11 @@ if (isset($_POST['cat_id'])) {
             <img onclick="submitForm(<?php echo $product['product_id']; ?>)" class="d-block img-fluid rounded-3 shadow"  src="
             <?="./public/uploads/".$product['product_image'] ?>
               " alt="" role="button">
-          <p style="color: #947057;" class=" text-start fs-6 mt-3"><?php echo $product['product_name']; ?></p>
-          <p style="color: #947057;" class=" text-start fs-6 fw-bolder"><?php echo $product['product_price']; ?> DH</p>
+              <div>
+
+                <p style="color: #947057;" class="text-start fs-6 mt-3 fw-bold fst-italic"><?php echo $product['product_name']; ?></p>
+                <p style="color: #947057;" class="text-start fs-6 fw-bold"><?php echo $product['product_price']; ?> DH</p>
+              </div>
         </div>
 
       <?php

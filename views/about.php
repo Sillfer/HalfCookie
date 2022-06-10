@@ -10,7 +10,7 @@
     Welcome to HalfCookie bakery!  This is your place for fresh gourmet cookies - baked to order for special delivery, pickup,  
     or shipment.  My lifelong love for cookies is the inspiration for this business and my unique recipes.  I began experimenting 
     with cookie dough recipes many years ago as an afternoon snack - i love baking cookies with depth of flavor, complexity and texture.  
-    So, as you may imagine, cookies are the dessert of choice in my home.  The perfect thing about Flour & Oats cookies is that they can be 
+    So, as you may imagine, cookies are the dessert of choice in my home.  The perfect thing about HalfCookie cookies is that they can be 
     enjoyed for breakfast, as a snack, or with coffee or tea.  Indulge anytime of day!  You too will love the treat!
     </p>
     <p class="text-start fs-5" style="color: #947057;">
@@ -22,9 +22,5 @@
     </p>
     <p class="text-start fs-5" style="color: #947057;">
     Enjoy learning about our cookie flavors while browsing this website and let me know what cookies I can bake fresh for you!
-    </p>
-    <p class="text-start fs-5" style="color: #947057;">
-    Our local farmer partners include Highspire Farm Fresh Eggs, Glenmoore, PA; Nova Pure Maple Syrup, Hartstown, PA;  
-    Cabot Creamery Butter, Old Homestead Farm, Ronks, PA;  Freecon Farms, Boyertown, PA.
     </p>
 </div>

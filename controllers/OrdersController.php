@@ -29,4 +29,10 @@ class OrdersController
         $orders = Order::displayOrders();
         return $orders;
     }
+
+    public function getOrdersByUserId($user_id)
+    {
+        $orders = Order::getOrdersByUserId($user_id);
+        return $orders;
+    }
 }

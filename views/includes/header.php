@@ -12,7 +12,7 @@
 <body style="background-color: #F4FAFF;">
     <?php
     $path = explode("/", $_SERVER["REQUEST_URI"])[2];
-        if($path != "login" && $path != "register" && $path != "dashboard" && $path != "products" && $path != "categories" && $path != "clients" && $path != "addProduct" && $path != "deleteProduct" && $path != "updateProduct") {
+        if($path != "login" && $path != "register" && $path != "dashboard" && $path != "products" && $path != "categories" && $path != "clients" && $path != "addProduct" && $path != "deleteProduct" && $path != "updateProduct" && $path != "addCategory" && $path != "404" && $path != "deleteCategory") {
          include('views/includes/navbar.php');
         }
     ?>
@@ -20,7 +20,7 @@
         <div class="col-md-12">
             <?php
             $path = explode("/", $_SERVER["REQUEST_URI"])[2];
-            if($path != "login" && $path != "register") {
+            if($path != "login" && $path != "register" && $path != "dashboard" && $path != "products" && $path != "categories" && $path != "clients" && $path != "addProduct" && $path != "deleteProduct" && $path != "updateProduct" && $path != "addCategory" && $path != "deleteCategory") {
                 include('views/includes/alerts.php');
             }
             

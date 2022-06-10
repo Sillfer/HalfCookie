@@ -28,26 +28,27 @@
       </ul>
       <ul class="d-flex flex-row navbar-nav ml-auto" style="list-style-type: none;">
         <li class="nav-item dropdown">
-        <?php if(isset($_SESSION["logged"]) && $_SESSION["logged"] === true):?>
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" href="#"><i class="fas fa-user"><?php echo $_SESSION["username"] ?></i></a>
-          <ul class="dropdown-menu" aria-labelledby="dropdown04" style="background-color: #F4FAFF;">
-          <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>Profile">Profile</a></li>
-          <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>wishlist">Wishlist</a></li>
-            <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>logout">Logout</a></li>
-          </ul>
+          <?php if (isset($_SESSION["logged"]) && $_SESSION["logged"] === true) : ?>
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" href="#"><i class="fas fa-user"><?php echo $_SESSION["username"] ?></i></a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown04" style="background-color: #F4FAFF;">
+              <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>profile">Profile</a></li>
+              <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>wishlist">Wishlist</a></li>
+              <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>showUserOrder">Orders</a></li>
+              <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>logout">Logout</a></li>
+            </ul>
         </li>
-        <?php else:?> 
-            <a class="nav-link me-4" href="<?php echo BASE_URL; ?>login"><i class="fas fa-user"><?php echo "Login" ?></i></a>
-          <?php endif;?>
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo BASE_URL; ?>cart"><i class="fa-solid fa-cart-shopping"></i>
-            <?php if (isset($_SESSION["count"]) && $_SESSION["count"] > 0) : ?>
-              (<?php echo $_SESSION["count"]; ?>)
-            <?php else : ?>
-              (0)
-            <?php endif; ?>
-          </a>
-        </li>
+      <?php else : ?>
+        <a class="nav-link me-4" href="<?php echo BASE_URL; ?>login"><i class="fas fa-user"><?php echo "Login" ?></i></a>
+      <?php endif; ?>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo BASE_URL; ?>cart"><i class="fa-solid fa-cart-shopping"></i>
+          <?php if (isset($_SESSION["count"]) && $_SESSION["count"] > 0) : ?>
+            (<?php echo $_SESSION["count"]; ?>)
+          <?php else : ?>
+            (0)
+          <?php endif; ?>
+        </a>
+      </li>
       </ul>
     </div>
   </div>

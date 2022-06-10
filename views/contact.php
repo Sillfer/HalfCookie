@@ -10,20 +10,6 @@
 </head>
 
 <body>
-    <!-- component -->
-    <!-- component -->
-    <!-- 
-    =======================================================================
-
-    This is a working contact form. To receive email, 
-    Replace YOUR_ACCESS_KEY_HERE with your actual Access Key.
-
-    Create Access Key here 👉 https://web3forms.com/
-
-    Surjith S M (@surjithctly)
-    =======================================================================
- -->
-
     <div class="w-full">
         <div class="bg-gradient-to-b from-amber-900 to-amber-600 h-96"></div>
         <div class="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12">

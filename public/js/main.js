@@ -11,3 +11,17 @@ function submitForm($id) {
     input.value = $id;
     form.submit();
 }
+
+function deleteForm($id) {
+    const input = document.querySelector('#delete_product_id');
+    const form = document.querySelector('#delete_Form');
+    input.value = $id;
+    form.submit();
+}
+
+function deleteCat($id) {
+    const input = document.querySelector('#delete_cat_id');
+    const form = document.querySelector('#delete_cat_Form');
+    input.value = $id;
+    form.submit();
+}

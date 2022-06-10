@@ -75,11 +75,54 @@ class ProductsController
                 'short_description' => $_POST["short_description"],
                 'product_image' => $_POST["image"],
             );
-            // var_dump($data);
-            // die();
             $result = Product::insertProduct($data);
             if ($result === "ok") {
                 Session::set("success", "Product Added!");
+                Redirect::to("products");
+            } else {
+                echo $result;
+            }
+        }
+    }
+
+    public function editProduct()
+    {
+        if (isset($_POST["submit"])) {
+            $data = array(
+                'product_id' => $_POST["product_id"],
+                'product_name' => $_POST["product_name"],
+                'product_category_id' => $_POST["product_category_id"],
+                'product_price' => $_POST["product_price"],
+                'product_quantity' => $_POST["product_quantity"],
+                'product_description' => $_POST["product_description"],
+                'short_description' => $_POST["short_description"],
+                'product_image' => $_POST["image"],
+            );
+            $result = Product::updateProduct($data);
+            if ($result === "ok") {
+                Session::set("success", "Product Updated!");
+                Redirect::to("products");
+            } else {
+                echo $result;
+            }
+        }
+    }
+
+    public function getRandomProducts()
+    {
+        $products = Product::getRandom(8);
+        return $products;
+    }
+
+    public function removeProduct()
+    {
+        if (isset($_POST["delete_product_id"])) {
+            $data = array(
+                'product_id' => $_POST["delete_product_id"]
+            );
+            $result = Product::deleteProduct($data);
+            if ($result === "ok") {
+                Session::set("success", "Product Removed!");
                 Redirect::to("products");
             } else {
                 echo $result;
