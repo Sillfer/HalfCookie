@@ -48,6 +48,15 @@ class Order {
         $stmt = null;
     }
 
+    static public function getUserOrders($id_client)
+    {
+
+        $stmt = DB::connect()->prepare("SELECT users.user_id,product_order.* FROM users JOIN product_order ON product_order.user_id = users.user_id WHERE users.user_id = :user_id");
+        $stmt->bindParam(':user_id', $id_client);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
 
 
 

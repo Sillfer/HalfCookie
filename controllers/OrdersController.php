@@ -35,4 +35,10 @@ class OrdersController
         $orders = Order::getOrdersByUserId($user_id);
         return $orders;
     }
+
+    public function getUserOrders()
+    {
+        $orders = Order::getUserOrders($_SESSION["user_id"]);
+        return $orders;
+    }
 }

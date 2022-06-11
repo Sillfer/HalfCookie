@@ -27,7 +27,7 @@ if (isset($_POST["remove"])) {
 </div>
 <div class="container">
     <table class="table p-4">
-        <thead class="bg-light">
+        <thead class="bg-[#947057]">
             <tr>
                 <th></th>
                 <th>Product name</th>
