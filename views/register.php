@@ -44,12 +44,9 @@ if (isset($_POST["submit"])) {
                     <span>Password</span>
                     <input type="password" name="password" required>
                 </div>
-                <div class="inputBx">
+                <div class="inputBx mb-5">
                     <span>Adress</span>
                     <input type="text" name="adress" required>
-                </div>
-                <div class="remember">
-                    <label for="id"><input type="checkbox" name="" id="id">Remember me</label>
                 </div>
                 <div class="d-grid gap-2">
                     <button name="submit" class="btn btn-outline-primary rounded-3" value="Sign Up">Sign Up</button>

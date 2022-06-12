@@ -28,12 +28,9 @@ if (isset($_POST["submit"])) {
                     <span>Username</span>
                     <input type="text" name="username">
                 </div>
-                <div class="inputBx">
+                <div class="inputBx mb-5">
                     <span>Password</span>
                     <input type="password" name="password">
-                </div>
-                <div class="remember">
-                    <label for="id"><input type="checkbox" name="" id="id">Remember me</label>
                 </div>
                 <div class="d-grid gap-2">
                     <button name="submit" class="btn btn-outline-primary rounded-3" value="Login">Login</button>
