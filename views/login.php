@@ -33,7 +33,7 @@ if (isset($_POST["submit"])) {
                     <input type="password" name="password">
                 </div>
                 <div class="d-grid gap-2">
-                    <button name="submit" class="btn btn-outline-primary rounded-3" value="Login">Login</button>
+                    <button name="submit" class="btn btn-outline-primary rounded-2 fw-bold" value="Login">LOGIN</button>
                 </div>
                 <div class="inputBx">
                     <p>Don't have an account?<a href="<?php echo BASE_URL; ?>register">Sign up</a></p>

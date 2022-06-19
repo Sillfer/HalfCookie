@@ -49,7 +49,7 @@ if (isset($_POST["submit"])) {
                     <input type="text" name="adress" required>
                 </div>
                 <div class="d-grid gap-2">
-                    <button name="submit" class="btn btn-outline-primary rounded-3" value="Sign Up">Sign Up</button>
+                    <button name="submit" class="btn btn-outline-primary rounded-2 fw-bold" value="Sign Up">SIGN UP</button>
                 </div>
                 <div class="inputBx">
                     <p>Already have an account?<a href="<?php echo BASE_URL; ?>login">Login</a></p>

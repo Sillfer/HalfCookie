@@ -58,7 +58,7 @@ if (isset($_POST['cat_id'])) {
               " alt="" role="button">
               <div>
 
-                <p style="color: #947057;" class="text-start fs-6 mt-3 fw-bold fst-italic"><?php echo $product['product_name']; ?></p>
+                <p style="color: #947057;" class="text-start fs-6 mt-3 fst-italic"><?php echo $product['product_name']; ?></p>
                 <p style="color: #947057;" class="text-start fs-6 fw-bold"><?php echo $product['product_price']; ?> DH</p>
               </div>
         </div>
