@@ -4,7 +4,7 @@ class User
 {
     static public function login($data)
     {
-        $username = $data['username'];
+        $username = $data['username'];  // get the username from the data array
         try {
             $query = "SELECT * FROM users WHERE username = :username";
             $stmt = DB::connect()->prepare($query);
@@ -47,7 +47,7 @@ class User
     static public function update($data)
     {
         $stmt = DB::connect()->prepare('UPDATE users SET first_name = :first_name, last_name = :last_name, email = :email, adress = :adress WHERE `user_id` = :user_id');
-        $stmt->bindParam(':first_name', $data['first_name']);
+        $stmt->bindParam(':first_name', $data['first_name']);   // bind the data to the placeholders in the query 
         $stmt->bindParam(':last_name', $data['last_name']);
         $stmt->bindParam(':email', $data['email']);
         $stmt->bindParam(':adress', $data['adress']);
